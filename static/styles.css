@@ -1,0 +1,362 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #F7F7FA;
+  height: 100vh;
+  font-family: "Poppins";
+  font-size: 14.636px;
+}
+
+.container {
+  display: flex;
+
+}
+
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.search-container {
+  position: relative;
+  left: 60px;
+}
+
+.search-bar, .search-input {
+  padding: 10px 10px 10px 35px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  width: 250px;
+}
+
+.search-container i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px; /* Ajusta este valor para que coincida con la altura del header */
+  left: -260px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 260px;
+  height: 100vh;
+  border-radius: 16px;
+  padding: 0 16px;
+  border: 1px solid rgba(253, 252, 252, 0.08);
+  background: #fff;
+  box-shadow: 0px 3.125px 35.156px 0px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+  transition: width 0.4s;
+}
+
+.sidebar.open {
+  width: 260px;
+  left: 0;
+}
+.button-sidebar {
+  position: absolute;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #61845C;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+.button-sidebar:hover{
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.sidebar .logout-btn {
+  margin-top: 40px;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  background-color: #61845C;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  border-radius: 6px;
+  line-height: 1;
+  padding: 0 16px;
+  text-decoration-line: none;
+}
+
+.logout-btn:hover{
+  background-color: #0BDA54;
+  box-shadow: 0px 3.125px 35.156px 0px rgba(0, 0, 0, 0.018);
+}
+
+.sidebar header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 120px; /* Aumentamos la altura para dar más espacio al logo */
+  padding: 0;
+  border-bottom: 1px solid rgba(102, 255, 0, 0.27);
+  font-weight: bold;
+}
+
+.sidebar header .logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar header img {
+  width: auto;
+  height: 1200px; /* Aumentamos el tamaño del logo */
+  max-width: 90%; /* Aseguramos que no se desborde */
+  object-fit: contain;
+}
+
+.sidebar a {
+  position: relative;
+  display: flex;
+  margin-top: 8px;
+  gap: 16px;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0 16px;
+  color: #61845C;
+  
+}
+
+.sidebar a p:nth-child(2) {
+  flex: 1 1 auto;
+}
+
+.sidebar a:is(.active, :hover) {
+  background-color: #ECFEEF ;
+  color: #0BDA54;
+  font-weight: bold;
+}
+/* Ajustamos icono de flecha la derecha */
+.sidebar a i:last-child {
+  margin-left: auto;
+  padding-left: 8px; 
+}
+
+.sidebar a i {
+  transition: 0.3s;
+}
+
+.sidebar a.active > i:nth-child(3) {
+  transform: rotate(-180deg);
+}
+
+.sidebar a:not(.active):hover {
+  background-color: #ECFEEF;
+  color: #0BDA54;
+}
+
+.sidebar ul {
+  display: grid;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  list-style: none;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 8px;
+}
+
+.sidebar .menu-item {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0 16px;
+  color: #61845C;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar .menu-item:hover,
+.sidebar .menu-item.active {
+  background-color: #ECFEEF;
+  color: #0BDA54;
+  font-weight: bold;
+}
+
+.sidebar .menu-item i {
+  font-size: 20px;
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+  transition: 0.3s;
+}
+
+.sidebar .menu-item.active > i:nth-child(3) {
+  rotate:-180deg; 
+}
+
+.sub-menu {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.sub-menu.active {
+  max-height: 500px; /* Ajusta este valor según sea necesario */
+}
+.sub-menu ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  list-style-type: none;
+}
+
+.sidebar .sub-menu li a {
+  padding-left: 42px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: #61845C;
+  text-decoration: none;
+}
+
+.sub-menu a {
+  padding-left: 42px;
+}
+
+.sub-menu li a:hover {
+  background-color: #ECFEEF;
+  color: #0BDA54;
+}
+.sub-menu a::before {
+  padding-bottom: 6px;
+  gap: 8.364px;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  translate: 0 -50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  list-style-type: none;
+}
+.sidebar .material-symbols-outlined {
+  font-size: 16px;
+}
+
+
+.sidebar i {
+  font-size: 20px;
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+}
+
+/* Diseño tabla de fincas */
+#tablaFincas {
+  margin-top: 20px;
+}
+
+#tablaFincas h2 {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}

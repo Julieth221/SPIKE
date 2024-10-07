@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebars</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/akar-icons-fonts"></script>
+  </head>
+  <body>
+    <div class="container">
+        <main class="content">
+            <header class="header">
+              <buttonv class="button-sidebar"
+              type="button"
+              className="sidebar-burger"
+              onClick="toggleSidebar()">
+              <i class="ai-three-line-horizontal"></i>
+              </buttonv>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar..." class="search-bar">
+                </div>
+                <div class="user-info">
+                    <img src="user-avatar.jpg" alt="Avatar" class="user-avatar">
+                    <div class="user-details">
+                        <span class="user-name">Taylor Swift</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                </div>
+            </header>
+        <aside class="sidebar">
+          <header>
+            <div class="logo">
+              <img src="static/images/Logo.png" alt="Logo" class="logo-img">
+            </div>
+          </header>
+          <nav>
+            <ul>
+              <li>
+                <a href="#" class="menu-item" onclick="onClick(this)">
+                  <i class="fas fa-home"></i> 
+                  <span>Inicio</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="menu-item has-submenu" onclick="onClick(this)">
+                  <i class="bi bi-columns-gap"></i>
+                  <span>Finca</span>
+                  <i class="ai-chevron-down-small"></i>
+                </a>
+                <ul class="sub-menu">
+                  <li><a href="#">Gestión de Fincas</a></li>
+                  <li><a href="#">Gestión de Arrendamientos</a></li>
+                  <li><a href="#">Localización de Parcelas</a></li>
+                  <li><a href="#">Registrar Finca</a></li>
+                  <li><a href="#">Registrar Arrendamiento</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="menu-item has-submenu" onclick="onClick(this)">
+                  <i class="fas fa-seedling"></i>
+                  <span>Cultivo</span>
+                  <i class="ai-chevron-down-small"></i>
+                </a>
+                <ul class="sub-menu">
+                  <li><a href="#">Gestión de Cultivos</a></li>
+                  <li><a href="#">Historial de Insumos</a></li>
+                  <li><a href="#">Registrar Cultivo</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="menu-item has-submenu" onclick="onClick(this)">
+                  <i class="fas fa-microchip"></i>
+                  <span>Sensores</span>
+                  <i class="ai-chevron-down-small"></i>
+                </a>
+                <ul class="sub-menu">
+                  <li><a href="#">Gestión de Sensores</a></li>
+                  <li><a href="#">Probar Sensor</a></li>
+                  <li><a href="#">Configuración de Alertas</a></li>
+                  <li><a href="#">Localización Sensor</a></li>
+                  <li><a href="#">Registrar Sensor</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="menu-item" onclick="onClick(this)">
+                  <i class="bi bi-people-fill"></i>
+                  <span>Usuarios</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="menu-item" onclick="onClick(this)">
+                  <i class="fas fa-user-circle"></i> 
+                  <span>Mi perfil</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="menu-item" onclick="onClick(this)">
+                  <i class="fas fa-cog"></i>
+                  <span>Configuración</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="logout-container">
+            <ai href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</ai>
+          </div>
+        </aside>
+    </div>
+    <div id="tablaFincas"></div>
+    <script src="/Conf/Menu.js"></script>
+    <script src="/Conf/TablaFincas.js"></script>
+    <script src="/Conf/TablaArrendamientos.js"></script>
+    <script src="conf/Menu.js"></script>
+    <script src="/conf/server.js"></script>
+    <script src="/models/fincasModel.js"></script>
+    <script src="/controllers/fincasController.js"></script>
+    <script src="/routes/fincasRoutes.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
